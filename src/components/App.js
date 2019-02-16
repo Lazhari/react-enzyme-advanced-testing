@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import CommentBox from './CommentBox';
-import CommentList from './CommentList';
+import CommentBox from 'components/CommentBox';
+import CommentList from 'components/CommentList';
 
-const App = () => {
-	return (
-		<div>
-			<CommentBox />
-			<CommentList />
-		</div>
-	);
-};
+class App extends Component {
+	render() {
+		return (
+			<>
+				<CommentBox />
+				<CommentList />
+			</>
+		);
+	}
+}
 
 const styles = theme => ({
 	root: {}

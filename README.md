@@ -66,3 +66,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Enzyme API
+
+- Static: Render the given component and return plain HTML
+
+- Shallow: Render just the given component and none of its children
+
+- Full Dom: Render the component and all of its children let us modify it afterwards
