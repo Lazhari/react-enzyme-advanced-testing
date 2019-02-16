@@ -1,11 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox';
-
+import Root from 'Root';
 let wrapper;
 
 beforeEach(() => {
-	wrapper = mount(<CommentBox />);
+	wrapper = mount(
+		<Root>
+			<CommentBox />
+		</Root>
+	);
 });
 
 it('has a h1 title, form, textarea and a button ', () => {
