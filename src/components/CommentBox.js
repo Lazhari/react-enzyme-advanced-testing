@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
 import { createStyles, withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+import * as actions from 'actions';
 
 class CommentBox extends Component {
 	state = { comment: '' };
@@ -17,7 +21,7 @@ class CommentBox extends Component {
 		event.preventDefault();
 		// TODO: Call an action create
 		// And Save the comment entered by the user
-
+		this.props.saveComment(this.state.comment);
 		this.setState({ comment: '' });
 	};
 	render() {
@@ -66,4 +70,10 @@ const styles = ({ spacing }) =>
 		}
 	});
 
-export default withStyles(styles)(CommentBox);
+export default compose(
+	connect(
+		null,
+		actions
+	),
+	withStyles(styles)
+)(CommentBox);
