@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import * as actions from 'actions';
 
@@ -43,15 +44,29 @@ class CommentBox extends Component {
 							rows={4}
 							label="Your Comment"
 						/>
-						<Button
-							type="submit"
-							color="primary"
-							variant="contained"
-							className={classes.button}
-							fullWidth
-						>
-							Submit Comment
-						</Button>
+						<Grid container justify="center" spacing={40}>
+							<Grid item>
+								<Button
+									type="submit"
+									color="primary"
+									variant="contained"
+									className={classes.button}
+								>
+									Submit Comment
+								</Button>
+							</Grid>
+
+							<Grid item>
+								<Button
+									color="secondary"
+									variant="contained"
+									className={classes.button}
+									onClick={this.props.fetchComments}
+								>
+									Fetching Comments
+								</Button>
+							</Grid>
+						</Grid>
 					</form>
 				</CardContent>
 			</Card>
