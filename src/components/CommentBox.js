@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { createStyles, withStyles } from '@material-ui/core/styles';
@@ -60,7 +61,7 @@ class CommentBox extends Component {
 								<Button
 									color="secondary"
 									variant="contained"
-									className={classes.button}
+									className={classNames('fetch-comments', classes.button)}
 									onClick={this.props.fetchComments}
 								>
 									Fetching Comments

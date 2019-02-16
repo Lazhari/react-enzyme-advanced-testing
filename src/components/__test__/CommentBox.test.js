@@ -12,11 +12,11 @@ beforeEach(() => {
 	);
 });
 
-it('has a h1 title, form, textarea and a button ', () => {
+it('has a h1 title, form, textarea and a two button ', () => {
 	expect(wrapper.find('h1').length).toEqual(1);
 	expect(wrapper.find('form').length).toEqual(1);
 	expect(wrapper.find('textarea').length).toEqual(1);
-	expect(wrapper.find('button').length).toEqual(1);
+	expect(wrapper.find('button').length).toEqual(2);
 });
 
 describe('Testing the comment form', () => {
