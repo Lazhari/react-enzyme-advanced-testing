@@ -5,16 +5,16 @@ import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
 describe('Testing App component', () => {
-	let wrapped;
+	let wrapper;
 	beforeEach(() => {
 		// Because we are using withStyles HoC component from material-ui
-		wrapped = shallow(<App />).dive();
+		wrapper = shallow(<App />).dive();
 	});
 	it('shows a comment box', () => {
-		expect(wrapped.find(CommentBox).length).toEqual(1);
+		expect(wrapper.find(CommentBox).length).toEqual(1);
 	});
 
 	it('shows a comment list', () => {
-		expect(wrapped.find(CommentList).length).toEqual(1);
+		expect(wrapper.find(CommentList).length).toEqual(1);
 	});
 });

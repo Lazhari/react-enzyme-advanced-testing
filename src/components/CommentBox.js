@@ -26,7 +26,7 @@ class CommentBox extends Component {
 		return (
 			<Card>
 				<CardContent>
-					<Typography variant="title" className={classes.title}>
+					<Typography variant="title" className={classes.title} component="h1">
 						Add Comment
 					</Typography>
 					<form onSubmit={this.handleSubmit}>
