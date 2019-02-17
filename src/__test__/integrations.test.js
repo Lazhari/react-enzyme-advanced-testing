@@ -23,7 +23,7 @@ beforeEach(() => {
 it('can fetch a list of comments and display them', done => {
 	const wrapper = mount(
 		<MemoryRouter initialEntries={['/post']}>
-			<Root>
+			<Root initialState={{ auth: true }}>
 				<App />
 			</Root>
 		</MemoryRouter>

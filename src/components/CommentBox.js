@@ -14,6 +14,21 @@ import * as actions from 'actions';
 
 class CommentBox extends Component {
 	state = { comment: '' };
+	// Component just got rendered
+	componentDidMount() {
+		this.shouldNavigateAway();
+	}
+	// Our Component just get update
+	componentDidUpdate() {
+		this.shouldNavigateAway();
+	}
+
+	shouldNavigateAway() {
+		if (!this.props.auth) {
+			this.props.history.push('/');
+		}
+	}
+
 	handleChange = event => {
 		this.setState({
 			comment: event.target.value
@@ -21,8 +36,6 @@ class CommentBox extends Component {
 	};
 	handleSubmit = event => {
 		event.preventDefault();
-		// TODO: Call an action create
-		// And Save the comment entered by the user
 		this.props.saveComment(this.state.comment);
 		this.setState({ comment: '' });
 	};
@@ -87,9 +100,13 @@ const styles = ({ spacing }) =>
 		}
 	});
 
+function mapStateTopProps(state) {
+	return { auth: state.auth };
+}
+
 export default compose(
 	connect(
-		null,
+		mapStateTopProps,
 		actions
 	),
 	withStyles(styles)

@@ -13,7 +13,7 @@ describe('Testing the post route', () => {
 		// Because we are using withStyles HoC component from material-ui
 		wrapper = mount(
 			<MemoryRouter initialEntries={['/post']}>
-				<Root>
+				<Root initialState={{ auth: true }}>
 					<App />
 				</Root>
 			</MemoryRouter>
