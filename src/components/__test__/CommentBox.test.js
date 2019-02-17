@@ -19,6 +19,10 @@ it('has a h1 title, form, textarea and a two button ', () => {
 	expect(wrapper.find('button').length).toEqual(2);
 });
 
+it('has a submit button disabled', () => {
+	expect(wrapper.find('button.submitComment').prop('disabled')).toEqual(true);
+});
+
 describe('Testing the comment form', () => {
 	beforeEach(() => {
 		const textarea = wrapper.find('textarea');
@@ -34,6 +38,11 @@ describe('Testing the comment form', () => {
 		const form = wrapper.find('form');
 		form.simulate('submit');
 		expect(wrapper.find('textarea').prop('value')).toEqual('');
+	});
+
+	it('has a disabled submit button after submitting the comment', () => {
+		wrapper.find('form').simulate('submit');
+		expect(wrapper.find('button.submitComment').prop('disabled')).toEqual(true);
 	});
 });
 

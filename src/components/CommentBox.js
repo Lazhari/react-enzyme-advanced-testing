@@ -51,7 +51,8 @@ class CommentBox extends Component {
 									type="submit"
 									color="primary"
 									variant="contained"
-									className={classes.button}
+									className={classNames('submitComment', classes.button)}
+									disabled={!this.state.comment}
 								>
 									Submit Comment
 								</Button>
