@@ -11,23 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import * as actions from 'actions';
+import requireAuth from 'components/requireAuth';
 
 class CommentBox extends Component {
 	state = { comment: '' };
-	// Component just got rendered
-	componentDidMount() {
-		this.shouldNavigateAway();
-	}
-	// Our Component just get update
-	componentDidUpdate() {
-		this.shouldNavigateAway();
-	}
-
-	shouldNavigateAway() {
-		if (!this.props.auth) {
-			this.props.history.push('/');
-		}
-	}
 
 	handleChange = event => {
 		this.setState({
@@ -100,14 +87,10 @@ const styles = ({ spacing }) =>
 		}
 	});
 
-function mapStateTopProps(state) {
-	return { auth: state.auth };
-}
-
 export default compose(
 	connect(
-		mapStateTopProps,
+		null,
 		actions
 	),
 	withStyles(styles)
-)(CommentBox);
+)(requireAuth(CommentBox));
