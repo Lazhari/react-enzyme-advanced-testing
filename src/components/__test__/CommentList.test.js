@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import CommentList from 'components/CommentList';
 import Root from 'Root';
 

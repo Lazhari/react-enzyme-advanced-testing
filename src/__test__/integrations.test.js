@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import moxios from 'moxios';
 import Root from 'Root';
 import App from 'components/App';
@@ -21,9 +22,11 @@ beforeEach(() => {
 
 it('can fetch a list of comments and display them', done => {
 	const wrapper = mount(
-		<Root>
-			<App />
-		</Root>
+		<MemoryRouter initialEntries={['/post']}>
+			<Root>
+				<App />
+			</Root>
+		</MemoryRouter>
 	);
 
 	const fetchCommentsButton = wrapper.find('button.fetch-comments');

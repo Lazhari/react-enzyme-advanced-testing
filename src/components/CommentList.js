@@ -19,10 +19,10 @@ class CommentList extends Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<>
+			<div>
 				<Typography variant="title">Comment List</Typography>
 				<List className={classes.root}>{this.renderComments()}</List>
-			</>
+			</div>
 		);
 	}
 }
