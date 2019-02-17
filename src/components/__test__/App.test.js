@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
 import App from 'components/App';
 import Root from 'Root';
 import CommentBox from 'components/CommentBox';
@@ -17,6 +18,12 @@ describe('Testing the post route', () => {
 				</Root>
 			</MemoryRouter>
 		);
+	});
+	it('shows a AppBar', () => {
+		expect(wrapper.find(AppBar).length).toEqual(1);
+	});
+	it('has Comment Box as title', () => {
+		expect(wrapper.render().text()).toContain('Comment Box');
 	});
 	it('shows a comment box', () => {
 		expect(wrapper.find(CommentBox).length).toEqual(1);
