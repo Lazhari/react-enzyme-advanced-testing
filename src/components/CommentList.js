@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Typography } from '@material-ui/core';
 class CommentList extends Component {
 	renderComments() {
 		const { comments } = this.props;
@@ -17,7 +18,12 @@ class CommentList extends Component {
 	}
 	render() {
 		const { classes } = this.props;
-		return <List className={classes.root}>{this.renderComments()}</List>;
+		return (
+			<>
+				<Typography variant="title">Comment List</Typography>
+				<List className={classes.root}>{this.renderComments()}</List>
+			</>
+		);
 	}
 }
 

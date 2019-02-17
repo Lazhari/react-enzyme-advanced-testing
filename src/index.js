@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from '@reach/router';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Root from 'Root';
 import App from 'components/App';
 
 ReactDOM.render(
 	<Root>
-		<Router>
-			<App path="/" />
-		</Router>
+		<BrowserRouter>
+			<Route path="/" component={App} />
+		</BrowserRouter>
 	</Root>,
 	document.getElementById('root')
 );
