@@ -19,12 +19,7 @@ describe('Testing the post route', () => {
 			</MemoryRouter>
 		);
 	});
-	it('shows a AppBar', () => {
-		expect(wrapper.find(AppBar).length).toEqual(1);
-	});
-	it('has Comment Box as title', () => {
-		expect(wrapper.render().text()).toContain('Comment Box');
-	});
+
 	it('shows a comment box', () => {
 		expect(wrapper.find(CommentBox).length).toEqual(1);
 	});
@@ -55,6 +50,36 @@ describe('Testing the / route', () => {
 
 	it('shows a comment list', () => {
 		expect(wrapper.find(CommentList).length).toEqual(1);
+	});
+	describe('Testing the header', () => {
+		it('shows a AppBar', () => {
+			expect(wrapper.find(AppBar).length).toEqual(1);
+		});
+		it('has Comment Box as title', () => {
+			expect(wrapper.render().text()).toContain('Comment Box');
+		});
+
+		it('has a sign in button', () => {
+			expect(
+				wrapper
+					.find(AppBar)
+					.find('button')
+					.render()
+					.text()
+			).toEqual('Sign In');
+		});
+
+		it('has a sign out label after clicking on the sign in button', () => {
+			const signInButton = wrapper.find(AppBar).find('button');
+			signInButton.simulate('click');
+			expect(
+				wrapper
+					.find(AppBar)
+					.find('button')
+					.render()
+					.text()
+			).toEqual('Sign Out');
+		});
 	});
 	afterEach(() => {
 		wrapper.unmount();
