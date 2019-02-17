@@ -1,5 +1,7 @@
 # React Advanced Testing
 
+[![Build Status](https://travis-ci.org/Lazhari/react-enzyme-advanced-testing.svg?branch=master)](https://travis-ci.org/Lazhari/react-enzyme-advanced-testing)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
