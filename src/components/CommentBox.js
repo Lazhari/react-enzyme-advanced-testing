@@ -92,5 +92,6 @@ export default compose(
 		null,
 		actions
 	),
-	withStyles(styles)
-)(requireAuth(CommentBox));
+	withStyles(styles),
+	requireAuth()
+)(CommentBox);
