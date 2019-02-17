@@ -10,13 +10,22 @@ import Typography from '@material-ui/core/Typography';
 
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
+import * as actions from 'actions';
 
 class App extends Component {
 	renderButton() {
 		if (this.props.auth) {
-			return <Button color="inherit">Sign Out</Button>;
+			return (
+				<Button color="inherit" onClick={() => this.props.changeAuth(false)}>
+					Sign Out
+				</Button>
+			);
 		}
-		return <Button color="inherit">Sign In</Button>;
+		return (
+			<Button color="inherit" onClick={() => this.props.changeAuth(true)}>
+				Sign In
+			</Button>
+		);
 	}
 	renderHeader() {
 		const { classes } = this.props;
@@ -79,6 +88,9 @@ function mapStateToProps(state) {
 	return { auth: state.auth };
 }
 export default compose(
-	connect(mapStateToProps),
+	connect(
+		mapStateToProps,
+		actions
+	),
 	withStyles(styles)
 )(App);
